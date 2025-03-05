@@ -6,17 +6,20 @@ fun main() {
     // trickFunction() *関数のように呼び出せる変数に関数を格納できる。
     // treat()
 
-    val coins: (Int) -> String = { quantity ->
-        "$quantity quarters"
-    }
+    // ラムダ式の省略：パラメータ名が省略可能(パラメータ1つ)
+    // val coins: (Int) -> String = { "$it quarters" }
 
     val cupcake: (Int) -> String = { 
         "Have a cupcake!"
     }
 
-    val treatFunction = trickOrTreat(false, coins)
+    // val treatFunction = trickOrTreat(false, { "$it quarters" }) *ラムダ式の特徴：関数リテラル⇒関数呼び出しで直接関数を渡す。
+    val treatFunction = trickOrTreat(false) { "$it quarters" } // ラムダ式の特徴：後置ラムダ構文⇒パラメータと関数を分離できる。
     val trickFunction = trickOrTreat(true, null)
     treatFunction()
+    repeat(4) {
+        treatFunction()
+    }
     trickFunction()
 }
 
@@ -32,7 +35,7 @@ fun trickOrTreat(isTrick: Boolean, extraTreat: ((Int) -> String)?): () -> Unit {
 }
 
 val trick = {
-    print("No treat!")
+    print("No treats!")
 }
 
 

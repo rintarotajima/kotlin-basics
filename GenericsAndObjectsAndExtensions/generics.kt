@@ -50,6 +50,41 @@ class Quiz: ProgressPrintable {
         println()
         println(progressText)
     }
+
+    // fun printQuiz() {
+    //     println(question1.questionText)
+    //     println(question1.answer)
+    //     println(question1.difficulty)
+    //     println()
+    //     println(question2.questionText)
+    //     println(question2.answer)
+    //     println(question2.difficulty)
+    //     println()
+    //     println(question3.questionText)
+    //     println(question3.answer)
+    //     println(question3.difficulty)
+    //     println()
+    // }
+
+    fun printQuiz() {
+        question1.let {
+            println(it.questionText)
+            println(it.answer)
+            println(it.difficulty)
+        }
+        println()
+        question2.let {
+            println(it.questionText)
+            println(it.answer)
+            println(it.difficulty)
+        }
+        println()    
+        question3.let {
+            println(it.questionText)
+            println(it.answer)
+            println(it.difficulty)
+        }
+    }
 }
 
 // val Quiz.StudentProgress.progressText: String
@@ -64,6 +99,8 @@ class Quiz: ProgressPrintable {
 
 
 fun main() {
-    Quiz().printProgressBar()
+    Quiz().apply {
+        printQuiz()
+    }
 }
 

@@ -25,6 +25,10 @@ fun main() {
 
     val events = mutableListOf<Event>(event1, event2, event3, event4, event5, event6)
     println("Duration of first event of the day: ${events[0].durationOfEvent}") 
+
+    /*　メモ
+    拡張関数は独立させる?
+     */
 }
 
 data class Event(
